@@ -27,7 +27,7 @@
             },
         ];
 
-
+        // Function to add event
         ccVm.addEvent = function() {
             ccVm.events.push({
                 title: 'Type new event',
@@ -39,6 +39,7 @@
             });
         };
 
+        //Fucntion to get calender when calender icon is clicked in Add event table
         ccVm.toggle = function($event, field, event) {
             $event.preventDefault();
             $event.stopPropagation();
