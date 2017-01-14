@@ -38,6 +38,12 @@
                 resizable: true
             });
         };
+
+        ccVm.toggle = function($event, field, event) {
+            $event.preventDefault();
+            $event.stopPropagation();
+            event[field] = !event[field];
+        };
     }
 
 
