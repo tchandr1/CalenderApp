@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html ng-app="calender-app">
+<head>
+    <meta charset="UTF-8">
+    <title>Calender App</title>
+
+</head>
+<body >
+<div ng-controller="CalenderController as ccVm">
+    <h2>{{ccVm.currentDate}}</h2>
+
+    <div class="row">
+
+        <div class="col-md-6 text-center">
+            <div class="btn-group">
+
+                <button
+                        class="btn btn-primary"
+                        mwl-date-modifier
+                        date="ccVm.currentDate"
+                        decrement="ccVm.calendarView"
+                        ng-click="ccVm.cellIsOpen = false">
+                    Previous
+                </button>
+                <button
+                        class="btn btn-default"
+                        mwl-date-modifier
+                        date="ccVm.currentDate"
+                        set-to-today
+                        ng-click="ccVm.cellIsOpen = false">
+                    Today
+                </button>
+                <button
+                        class="btn btn-primary"
+                        mwl-date-modifier
+                        date="ccVm.currentDate"
+                        increment="ccVm.calendarView"
+                        ng-click="ccVm.cellIsOpen = false">
+                    Next
+                </button>
+            </div>
+        </div>
+
+        <mwl-calendar
+                events="ccVm.events"
+                view="ccVm.calendarView"
+                view-title="ccVm.title"
+                view-date="ccVm.currentDate"
+
+                cell-is-open="ccVm.cellIsOpen"
+                day-view-start="06:00"
+                day-view-end="22:59"
+                day-view-split="30"
+
+                on-timespan-click="ccVm.timespanClicked(calendarDate, calendarCell)"
+        >
+        </mwl-calendar>
+
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- moment should be referenced for using bootstrap calender -->
+<script src="https://unpkg.com/moment@2.17.1"></script>
+<script src="https://unpkg.com/angular@1.6.1/angular.js"></script>
+<script src="https://unpkg.com/angular-bootstrap-calendar"></script>
+<script src="https://unpkg.com/angular-ui-bootstrap@2/dist/ui-bootstrap-tpls.js"></script>
+<script src="https://unpkg.com/angular-animate@1.6.1/angular-animate.js"></script>
+<script src="https://unpkg.com/angular-bootstrap-colorpicker@3"></script>
+
+<script src="calender-controller.js"></script>
+<link href="https://unpkg.com/bootstrap@3/dist/css/bootstrap.css" rel="stylesheet">
+<link href="https://unpkg.com/angular-bootstrap-colorpicker@3/css/colorpicker.min.css" rel="stylesheet">
+<link href="https://unpkg.com/angular-bootstrap-calendar/dist/css/angular-bootstrap-calendar.min.css" rel="stylesheet">
+
+</body>
+</html>
