@@ -31,7 +31,9 @@
         //Function which validates whether any events clashes and alerts accordingly
         ccVm.validate = function(){
             var seen = {};
+
             ccVm.hasDuplicates = ccVm.events.some(function (currentObject) {
+                console.log(currentObject);
                 return seen.hasOwnProperty(currentObject.startsAt)
                     || (seen[currentObject.startsAt] = false);
             });
@@ -39,7 +41,7 @@
                 alert("Event already exists.Please create the event with different timings");
                 ccVm.events.pop();
             }else{
-                alert(ccVm.events.title +" is successfully created");
+                alert("Event is successfully created");
             }
         }
 
